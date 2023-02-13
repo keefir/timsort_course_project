@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Test page</title>
+</head>
+<body style="background-color: wheat; text-align:center">
+<h1>sort array</h1>
+<div class="array_element" id="one"></div>
+<div class="array_element" id="two"></div>
+<div class="array_element" id="three"></div>
+<div class="array_element" id="four"></div>
+<div class="array_element" id="five"></div>
+<div class="array_element" id="six"></div>
+<div class="array_element" id="seven"></div>
+<div class="array_element" id="eight"></div>
+<div class="array_element" id="nine"></div>
+<div class="array_element" id="ten"></div>
+<p></p>
+<input type="button" onclick="bubble_sort(boxes)" value="Sort!">
+<script>
+    let boxes = document.getElementsByClassName("array_element");
+    for (let i = 0; i < boxes.length; ++i) {
+        boxes[i].style.height = String(Math.random() * (100 - 10 + 1) + 10) + "px";
+    }
+
+    async function bubble_sort(arr) {
+        for (let j = arr.length - 1; j > 0; j--) {
+            for (let i = 0; i < j; i++) {
+                if (arr[i].style.height > arr[i + 1].style.height) {
+                    let temp = arr[i].style.height;
+                    arr[i].style.height = arr[i + 1].style.height;
+                    arr[i + 1].style.height = temp;
+                    await new Promise(r => setTimeout(r, 200)); // ждём-с
+                }
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

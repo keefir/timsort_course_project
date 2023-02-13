@@ -1,0 +1,7 @@
+.array_element {
+    display: inline-block;
+    width: 20px;
+    height: 100px;
+    background: blueviolet;
+    color: white;
+}
