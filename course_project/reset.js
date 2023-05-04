@@ -4,5 +4,3 @@ function reset() {
         boxes[i].style.height = String(Math.random() * (160 - 30 + 1) + 30) + "px";
     }
 }
-
-reset();

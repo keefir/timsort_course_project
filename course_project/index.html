@@ -4,38 +4,29 @@
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <title>Test page</title>
+    <script src="reset.js"></script>
+    <script src="load_array.js"></script>
+    <script src="insertion_sort.js"></script>
+    <script src="reverse_subarray.js"></script>
+    <script src="reverse_runs.js"></script>
 </head>
-<body style="background-color: wheat; text-align:center">
+<body style="background-color: wheat; text-align:center" onload="load_array(512)">
 <h1>Timsort visualization</h1>
-<div class="sort_window">
-    <div class="array_window">
-        <div class="array_element" id="one"></div>
-        <div class="array_element" id="two"></div>
-        <div class="array_element" id="three"></div>
-        <div class="array_element" id="four"></div>
-        <div class="array_element" id="five"></div>
-        <div class="array_element" id="six"></div>
-        <div class="array_element" id="seven"></div>
-        <div class="array_element" id="eight"></div>
-        <div class="array_element" id="nine"></div>
-        <div class="array_element" id="ten"></div>
-    </div>
+<div class="sort_window" id="sort_window">
+    <div class="array_window" id="array_window"></div>
     <p></p>
     <div class="setting_area">
         <b>Speed:</b>
         <input type="text" size="3">
         <span class="sort_button">
-            <input type="button" id="sort_button"
-                   onclick="insertion_sort(boxes, document.querySelector('input').value)"
+            <input type="button" id="sort_button" onclick="reverse_runs(boxes)"
                    value="Sort!">
-        </span>
+        </span><!--                   onclick="insertion_sort(boxes, 0, boxes.length, document.querySelector('input').value)"-->
         <span class="refresh_button">
             <input type="button" id="refresh_button" onclick="reset()" value="Refresh">
         </span>
     </div>
 
 </div>
-<script src="reset.js"></script>
-<script src="insertion_sort.js"></script>
 </body>
 </html>

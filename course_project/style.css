@@ -1,22 +1,23 @@
 .sort_window {
-    width: 426px;
+    /*width: 426px;*/
     position: relative;
-    left: 70px;
     top: 30px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .array_window {
     border: 1px solid black;
     display: flex;
-    width: 426px;
-    height: 200px;
+    /*width: 426px;*/
+    height: 300px;
     align-items: flex-end;
 }
 
 .array_element {
     border: .1rem solid wheat;
-    width: 40px;
-    height: 200px;
+    /*width: 40px;*/
+    /*height: 200px;*/
     background: gray;
 }
 
