@@ -1,2 +1,4 @@
 # course_project_test
-learning js and practicing doing stuff for uni course project
+Web-application with Timsort visualization, comparing it to other popular algorithms and other interesting features
+
+for HSE FCS course project
