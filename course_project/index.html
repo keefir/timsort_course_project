@@ -10,23 +10,24 @@
     <script src="reverse_subarray.js"></script>
     <script src="reverse_runs.js"></script>
 </head>
-<body style="background-color: wheat; text-align:center" onload="load_array(512)">
+<body style="background-color: wheat; text-align:center" onload="load_array(256)">
 <h1>Timsort visualization</h1>
 <div class="sort_window" id="sort_window">
     <div class="array_window" id="array_window"></div>
-    <p></p>
+    <p>Randomly generated array of 256 objects</p>
     <div class="setting_area">
+        <b>Minrun:</b>
+        <input type="text" size="3" id="minrun">
         <b>Speed:</b>
-        <input type="text" size="3">
+        <input type="text" size="3" id="speed">
         <span class="sort_button">
-            <input type="button" id="sort_button" onclick="reverse_runs(boxes)"
+            <input type="button" id="sort_button" onclick="reverse_runs(boxes, document.getElementById('minrun').value, document.getElementById('speed').value)"
                    value="Sort!">
-        </span><!--                   onclick="insertion_sort(boxes, 0, boxes.length, document.querySelector('input').value)"-->
+        </span>
         <span class="refresh_button">
             <input type="button" id="refresh_button" onclick="reset()" value="Refresh">
         </span>
     </div>
-
 </div>
 </body>
 </html>

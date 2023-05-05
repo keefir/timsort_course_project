@@ -1,5 +1,5 @@
 .sort_window {
-    /*width: 426px;*/
+    width: 1900px;
     position: relative;
     top: 30px;
     margin-left: auto;
@@ -9,7 +9,7 @@
 .array_window {
     border: 1px solid black;
     display: flex;
-    /*width: 426px;*/
+    width: 1900px;
     height: 300px;
     align-items: flex-end;
 }
