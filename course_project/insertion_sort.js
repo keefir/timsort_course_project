@@ -20,6 +20,4 @@ async function insertion_sort(arr, arr_begin, arr_end, speed) {
             arr[j-1].style.background = "green";
         }
     }
-    document.getElementById("sort_button").disabled = false;
-    document.getElementById("refresh_button").disabled = false;
 }

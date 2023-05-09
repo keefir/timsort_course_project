@@ -4,11 +4,12 @@
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <title>Test page</title>
-    <script src="reset.js"></script>
+    <script src="reset.js" defer></script>
     <script src="load_array.js"></script>
     <script src="insertion_sort.js"></script>
     <script src="reverse_subarray.js"></script>
     <script src="reverse_runs.js"></script>
+    <script src="stack_push.js"></script>
 </head>
 <body style="background-color: wheat; text-align:center" onload="load_array(256)">
 <h1>Timsort visualization</h1>
@@ -21,12 +22,20 @@
         <b>Speed:</b>
         <input type="text" size="3" id="speed">
         <span class="sort_button">
-            <input type="button" id="sort_button" onclick="reverse_runs(boxes, document.getElementById('minrun').value, document.getElementById('speed').value)"
+            <input type="button" id="sort_button"
+                   onclick="reverse_runs(boxes, document.getElementById('minrun').value, document.getElementById('speed').value)"
                    value="Sort!">
         </span>
         <span class="refresh_button">
             <input type="button" id="refresh_button" onclick="reset()" value="Refresh">
         </span>
+    </div>
+
+    <div class="stack_area" id="stack_area">
+        <div class="stack" id="stack">
+
+        </div>
+        <p>Stack (last 10 subarrays)</p>
     </div>
 </div>
 </body>

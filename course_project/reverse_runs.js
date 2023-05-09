@@ -13,7 +13,9 @@ async function reverse_runs(arr, minrun, speed) {
         alert("Cannot set zero speed.");
         return;
     }
+    // console.log(frontend_stack);
     minrun = Number(minrun);
+    speed = Number(speed);
     document.getElementById("sort_button").disabled = true;
     document.getElementById("refresh_button").disabled = true;
     let ascending = -1;
@@ -53,11 +55,14 @@ async function reverse_runs(arr, minrun, speed) {
                     await new Promise(r => setTimeout(r, 2000 / speed));
                     await insertion_sort(arr, start_index, i + 1, speed);
                 } else {
+                    // array.len > minrun
                     await new Promise(r => setTimeout(r, 2000 / speed));
                     for (let j = start_index; j <= i; ++j) {
                         arr[j].style.background = "green";
                     }
                 }
+                let size = i - start_index + 1;
+                stack_push(start_index, size);
             }
         } else {
             if (ascending === 0) {
@@ -74,14 +79,23 @@ async function reverse_runs(arr, minrun, speed) {
                         arr[j].style.background = "yellow";
                     }
                     await new Promise(r => setTimeout(r, 2000 / speed));
-                    await insertion_sort(arr, start_index, i + 1, document.querySelector('input').value);
+                    await insertion_sort(arr, start_index, i + 1, speed);
                 } else {
+                    // array.len > minrun
                     await new Promise(r => setTimeout(r, 2000 / speed));
                     for (let j = start_index; j <= i; ++j) {
                         arr[j].style.background = "green";
                     }
                 }
+                let size = i - start_index + 1;
+                stack_push(start_index, size);
             }
         }
+        // console.log(backend_stack);
     }
+    console.log("hi");
+    for (let j = start_index; j < arr.length; ++j) {
+        arr[j].style.background = "green";
+    }
+    document.getElementById("refresh_button").disabled = false;
 }

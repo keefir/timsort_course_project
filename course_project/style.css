@@ -1,5 +1,5 @@
 .sort_window {
-    width: 1900px;
+    width: 97vw;
     position: relative;
     top: 30px;
     margin-left: auto;
@@ -9,8 +9,8 @@
 .array_window {
     border: 1px solid black;
     display: flex;
-    width: 1900px;
-    height: 300px;
+    width: 97vw;
+    height: 30vh;
     align-items: flex-end;
 }
 
@@ -31,3 +31,22 @@
     left: 15px;
 }
 
+.stack_area {
+    width: 15vw;
+    margin-left: 10vw;
+    margin-top: 5vh;
+}
+
+.stack {
+    height: 40vh;
+    width: 15vw;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.stack_element {
+    height: calc(10% - 2px);
+    width: 15vw;
+    border: 1px solid black;
+}
