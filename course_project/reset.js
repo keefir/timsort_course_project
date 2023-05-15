@@ -8,7 +8,10 @@ function reset() {
     }
     document.getElementById("sort_button").disabled = false;
     for (let i = 0; i < boxes.length; ++i) {
-        boxes[i].style.height = String(Math.random() * (250 - 30 + 1) + 30) + "px";
+        /*
+            formula for size: random * (upper - lower + 1) + lower
+         */
+        boxes[i].style.height = String(Math.random() * (25 - 5 + 1) + 5) + "vh";
         boxes[i].style.background = "gray";
     }
 }

@@ -22,6 +22,7 @@ async function reverse_runs(arr, minrun, speed) {
     let start_index = 0;
     let run = 0;
     for (let i = 0; i < arr.length - 1; ++i) {
+        console.log(i, arr.length-1);
         await new Promise(r => setTimeout(r, 2000 / speed));
         if (ascending === -1) {
             if (parseFloat(arr[i].style.height) > parseFloat(arr[i + 1].style.height)) {
@@ -63,6 +64,7 @@ async function reverse_runs(arr, minrun, speed) {
                 }
                 let size = i - start_index + 1;
                 stack_push(start_index, size);
+                merge_stack_elements();
             }
         } else {
             if (ascending === 0) {
@@ -89,9 +91,9 @@ async function reverse_runs(arr, minrun, speed) {
                 }
                 let size = i - start_index + 1;
                 stack_push(start_index, size);
+                merge_stack_elements();
             }
         }
-        // console.log(backend_stack);
     }
     console.log("hi");
     for (let j = start_index; j < arr.length; ++j) {

@@ -1,5 +1,5 @@
 function stack_push(start_index, size) {
-    backend_stack.push({start_index, size});
+    backend_stack.push([start_index, size]);
     // console.log(frontend_stack.firstChild);
     if (backend_stack.length > 10) {
         frontend_stack.removeChild(frontend_stack.firstChild);

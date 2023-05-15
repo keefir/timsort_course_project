@@ -10,8 +10,11 @@
     <script src="reverse_subarray.js"></script>
     <script src="reverse_runs.js"></script>
     <script src="stack_push.js"></script>
+    <script src="merge_subarrays.js"></script>
+    <script src="merge_stack_elements.js"></script>
 </head>
-<body style="background-color: wheat; text-align:center" onload="load_array(256)">
+<body style="background-color: wheat; text-align:center"
+      onload="load_array(256, document.getElementById('array_window'))">
 <h1>Timsort visualization</h1>
 <div class="sort_window" id="sort_window">
     <div class="array_window" id="array_window"></div>
@@ -30,12 +33,22 @@
             <input type="button" id="refresh_button" onclick="reset()" value="Refresh">
         </span>
     </div>
-
-    <div class="stack_area" id="stack_area">
-        <div class="stack" id="stack">
-
+    <div class="lower_zone" id="lower_zone">
+        <div class="stack_area" id="stack_area">
+            <div class="stack" id="stack"></div>
+            <p>Stack (last 10 subarrays)</p>
         </div>
-        <p>Stack (last 10 subarrays)</p>
+        <div class="merge_area" id="merge_area">
+            <div class="merge_window">
+                <div class="merge_subwindow" id="merge_subwindow1">
+                    <h2> 1 </h2>
+                </div>
+                <div class="merge_subwindow" id="merge_subwindow2">
+                    <h2> 2 </h2>
+                </div>
+            </div>
+            <p>Subarrays to merge</p>
+        </div>
     </div>
 </div>
 </body>

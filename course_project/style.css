@@ -1,15 +1,14 @@
 .sort_window {
-    width: 97vw;
-    position: relative;
-    top: 30px;
+    width: 98vw;
+    /*top: 30px;*/
     margin-left: auto;
     margin-right: auto;
 }
 
 .array_window {
-    border: 1px solid black;
+    border: 2px solid black;
     display: flex;
-    width: 97vw;
+    width: 98vw;
     height: 30vh;
     align-items: flex-end;
 }
@@ -31,10 +30,14 @@
     left: 15px;
 }
 
+.lower_zone {
+    display: flex;
+    margin-top: 5vh;
+}
+
 .stack_area {
     width: 15vw;
-    margin-left: 10vw;
-    margin-top: 5vh;
+    margin-left: 2vw;
 }
 
 .stack {
@@ -49,4 +52,32 @@
     height: calc(10% - 2px);
     width: 15vw;
     border: 1px solid black;
+}
+
+.merge_area {
+    margin-left: 8vw;
+}
+
+.merge_window {
+    display: flex;
+}
+
+.merge_subwindow {
+    border: 2px solid black;
+    height: 35vh;
+    width: 35vw;
+    display: flex;
+    align-items: flex-end;
+}
+
+h2 {
+    margin-top: 1vh;
+    margin-left: 1vh;
+}
+
+.subarray_element {
+    border: .1rem solid wheat;
+    /*width: 40px;*/
+    /*height: 200px;*/
+    background: gray;
 }
