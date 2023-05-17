@@ -32,7 +32,7 @@
 
 .lower_zone {
     display: flex;
-    margin-top: 5vh;
+    margin-top: 3vh;
 }
 
 .stack_area {
@@ -55,6 +55,7 @@
 }
 
 .merge_area {
+    margin-top: 5vh;
     margin-left: 8vw;
 }
 
@@ -80,4 +81,10 @@ h2 {
     /*width: 40px;*/
     /*height: 200px;*/
     background: gray;
+}
+
+.state_text {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
 }

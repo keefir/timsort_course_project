@@ -24,14 +24,19 @@
         <input type="text" size="3" id="minrun">
         <b>Speed:</b>
         <input type="text" size="3" id="speed">
+        <b>Vis. ins. sort:</b>
+        <input type="checkbox" id="vis_ins">
         <span class="sort_button">
             <input type="button" id="sort_button"
-                   onclick="reverse_runs(boxes, document.getElementById('minrun').value, document.getElementById('speed').value)"
+                   onclick="reverse_runs(boxes, document.getElementById('minrun').value,
+                    document.getElementById('speed').value,
+                    document.getElementById('vis_ins').checked)"
                    value="Sort!">
         </span>
         <span class="refresh_button">
             <input type="button" id="refresh_button" onclick="reset()" value="Refresh">
         </span>
+        <span></span>
     </div>
     <div class="lower_zone" id="lower_zone">
         <div class="stack_area" id="stack_area">
@@ -40,15 +45,14 @@
         </div>
         <div class="merge_area" id="merge_area">
             <div class="merge_window">
-                <div class="merge_subwindow" id="merge_subwindow1">
-                    <h2> 1 </h2>
-                </div>
-                <div class="merge_subwindow" id="merge_subwindow2">
-                    <h2> 2 </h2>
-                </div>
+                <div class="merge_subwindow" id="merge_subwindow1"></div>
+                <div class="merge_subwindow" id="merge_subwindow2"></div>
             </div>
             <p>Subarrays to merge</p>
         </div>
+    </div>
+    <div class="current_state" id="current_state">
+        <b style="font-size:18px" class="state_text" id="state_text">Current state: </b>
     </div>
 </div>
 </body>
