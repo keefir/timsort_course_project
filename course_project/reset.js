@@ -23,4 +23,5 @@ function reset() {
         boxes[i].style.height = String(Math.random() * (25 - 5 + 1) + 5) + "vh";
         boxes[i].style.background = "gray";
     }
+    state_window.innerHTML = '<b style="font-size:18px" class="state_text" id="state_text">Current state:</b>';
 }

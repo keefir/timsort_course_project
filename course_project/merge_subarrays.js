@@ -3,7 +3,6 @@ async function merge_subarrays(first_arr, second_arr, speed) {
     /*
         filling frontend zone
     */
-    // console.log(first_arr, second_arr);
     let container1 = document.getElementById('merge_subwindow1');
     let container2 = document.getElementById('merge_subwindow2');
     let backend_container1 = [];
@@ -48,7 +47,6 @@ async function merge_subarrays(first_arr, second_arr, speed) {
         await new Promise(r => setTimeout(r, 400 / speed));
         ++cntr;
     }
-    console.log('part ended');
     if (backend_container1.length > 0) {
         for (let i = ptr1; i < first_arr[1]; ++i) {
             // console.log(first_arr[0] + cntr, parseFloat(backend_container1[i]));

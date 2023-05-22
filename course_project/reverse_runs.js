@@ -1,10 +1,12 @@
 async function reverse_runs(arr, minrun, speed, vis_ins) {
-    // TODO: исправить баг с arr.length % minrun == 1
     if (isNaN(minrun)) {
         alert(`${minrun} is not a valid number.`)
         return;
-    } else if (Number(minrun) <= 0 || Number(minrun) > 128) {
-        alert("Minrun must be in range (0, 128].");
+    } else if (Number(minrun) <= 3 || Number(minrun) > 128) {
+        alert("Minrun must be in range [4, 128].");
+        return;
+    } else if (!Number.isInteger(Number(minrun))) {
+        alert("Minrun must be integer.");
         return;
     }
     if (isNaN(speed)) {
@@ -55,13 +57,18 @@ async function reverse_runs(arr, minrun, speed, vis_ins) {
                 await new Promise(r => setTimeout(r, 2000 / speed));
                 ascending = -1;
                 await reverse_subarray(arr, start_index, i + 1);
+                let end = i;
                 if (run < minrun) {
                     i = Math.min(arr.length - 1, i + minrun - run);
-                    for (let j = start_index; j <= i; ++j) {
+                    end = i;
+                    if (i === arr.length - 2) {
+                        ++end;
+                    }
+                    for (let j = start_index; j <= end; ++j) {
                         arr[j].style.background = "yellow";
                     }
                     await new Promise(r => setTimeout(r, 2000 / speed));
-                    await insertion_sort(arr, start_index, i + 1, speed, vis_ins);
+                    await insertion_sort(arr, start_index, end + 1, speed, vis_ins);
                 } else {
                     // array.len > minrun
                     await new Promise(r => setTimeout(r, 2000 / speed));
@@ -69,7 +76,7 @@ async function reverse_runs(arr, minrun, speed, vis_ins) {
                         arr[j].style.background = "green";
                     }
                 }
-                let size = i - start_index + 1;
+                let size = end - start_index + 1;
                 await stack_push(start_index, size, speed);
                 await merge_stack_elements(speed, 0);
             }
@@ -82,13 +89,18 @@ async function reverse_runs(arr, minrun, speed, vis_ins) {
                 arr[i + 1].style.background = "black";
                 await new Promise(r => setTimeout(r, 2000 / speed));
                 ascending = -1;
+                let end = i;
                 if (run < minrun) {
                     i = Math.min(arr.length - 1, i + minrun - run);
-                    for (let j = start_index; j <= i; ++j) {
+                    end = i;
+                    if (i === arr.length - 2) {
+                        ++end;
+                    }
+                    for (let j = start_index; j <= end; ++j) {
                         arr[j].style.background = "yellow";
                     }
                     await new Promise(r => setTimeout(r, 2000 / speed));
-                    await insertion_sort(arr, start_index, i + 1, speed, vis_ins);
+                    await insertion_sort(arr, start_index, end + 1, speed, vis_ins);
                 } else {
                     // array.len > minrun
                     await new Promise(r => setTimeout(r, 2000 / speed));
@@ -96,7 +108,7 @@ async function reverse_runs(arr, minrun, speed, vis_ins) {
                         arr[j].style.background = "green";
                     }
                 }
-                let size = i - start_index + 1;
+                let size = end - start_index + 1;
                 await stack_push(start_index, size, speed);
                 await merge_stack_elements(speed, 0);
             }
@@ -108,4 +120,5 @@ async function reverse_runs(arr, minrun, speed, vis_ins) {
         arr[j].style.background = "green";
     }
     document.getElementById("refresh_button").disabled = false;
+    state_window.innerHTML = '<b style="font-size:18px" class="state_text" id="state_text">Current state: finished</b>';
 }
