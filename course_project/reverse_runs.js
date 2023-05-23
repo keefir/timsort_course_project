@@ -52,6 +52,15 @@ async function reverse_runs(arr, minrun, speed, vis_ins) {
                 // here if we're at ascending subarray
                 arr[i + 1].style.background = "lightgreen";
                 ++run;
+                if (i === arr.length - 2) {
+                    await new Promise(r => setTimeout(r, 2000 / speed));
+                    for (let j = start_index; j <= i; ++j) {
+                        arr[j].style.background = "green";
+                    }
+                    let size = i - start_index + 2;
+                    await stack_push(start_index, size, speed);
+                    await merge_stack_elements(speed, 0);
+                }
             } else {
                 arr[i + 1].style.background = "black";
                 await new Promise(r => setTimeout(r, 2000 / speed));
@@ -85,6 +94,16 @@ async function reverse_runs(arr, minrun, speed, vis_ins) {
                 // here if we're at decreasing subarray
                 arr[i + 1].style.background = "red";
                 ++run;
+                if (i === arr.length - 2) {
+                    await new Promise(r => setTimeout(r, 2000 / speed));
+                    await reverse_subarray(arr, start_index, i + 2);
+                    for (let j = start_index; j <= i; ++j) {
+                        arr[j].style.background = "green";
+                    }
+                    let size = i - start_index + 2;
+                    await stack_push(start_index, size, speed);
+                    await merge_stack_elements(speed, 0);
+                }
             } else {
                 arr[i + 1].style.background = "black";
                 await new Promise(r => setTimeout(r, 2000 / speed));
