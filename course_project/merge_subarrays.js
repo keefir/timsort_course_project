@@ -12,7 +12,7 @@ async function merge_subarrays(first_arr, second_arr, speed) {
         div.className = "subarray_element";
         div.id = `subarr_1_${i}`;
         div.style.height = boxes[first_arr[0] + i].style.height;
-        div.setAttribute("style",`height:${boxes[first_arr[0] + i].style.height}; width:${boxes[first_arr[0] + i].style.width}`);
+        div.setAttribute("style", `height:${boxes[first_arr[0] + i].style.height}; width:${boxes[first_arr[0] + i].style.width}`);
         backend_container1.push(div.style.height);
     }
     for (let i = 0; i < second_arr[1]; ++i) {
@@ -23,46 +23,90 @@ async function merge_subarrays(first_arr, second_arr, speed) {
         div.setAttribute("style", `height:${boxes[second_arr[0] + i].style.height}; width:${boxes[first_arr[0] + i].style.width}`);
         backend_container2.push(div.style.height);
     }
+    await new Promise(r => setTimeout(r, MERGE_CONST / speed));
+
     /*
         merge sort as it is; filling main window
     */
-    let ptr1 = 0;
-    let ptr2 = 0;
-    let cntr = 0;
-    console.log(backend_container1.length, container1.children.length, first_arr[1]);
-    console.log(backend_container2.length, container2.children.length, second_arr[1]);
-    while (ptr1 < first_arr[1] && ptr2 < second_arr[1]) {
-        if (parseFloat(backend_container1[ptr1]) <= parseFloat(backend_container2[ptr2])) {
-            // console.log(first_arr[0], cntr);
-            boxes[first_arr[0] + cntr].style.height = backend_container1[ptr1];
-            container1.removeChild(container1.firstChild);
-            ++ptr1;
-        } else {
-            // console.log(first_arr[0], cntr);
-            boxes[first_arr[0] + cntr].style.height = backend_container2[ptr2];
-            container2.removeChild(container2.firstChild);
-            ++ptr2;
 
+    let cntr = 0;
+    let streak = 0; // >0 => galloping arr1; <0 => arr2
+    while (backend_container1.length !== 0 && backend_container2.length !== 0) {
+
+        console.log(backend_container1[0], backend_container2[0]);
+        merge_val1.innerHTML = `<p style="font-size:16px"><b>Lowest element value: ${parseFloat(backend_container1[0])}</b><p>`;
+        merge_val2.innerHTML = `<p style="font-size:16px"><b>Lowest element value: ${parseFloat(backend_container2[0])}</b><p>`;
+        await new Promise(r => setTimeout(r, MERGE_CONST / speed));
+
+        if (Math.abs(streak) >= min_gal) { // FIXME: gallop
+            if (streak > 0 && backend_container1[0] <= backend_container2[0]) {
+                let new_ptr1 = await activate_gallop(backend_container1, backend_container2, container1, container2, streak, speed, merge_val1);
+                state_window.innerHTML = '<b style="font-size:18px" class="state_text" id="state_text">Current state: merging subarrays</b>';
+                console.log("res:", new_ptr1);
+                for (let i = 0; i <= new_ptr1; ++i) {
+                    boxes[first_arr[0] + cntr].style.height = backend_container1[0];
+                    container1.removeChild(container1.firstChild);
+                    backend_container1.shift();
+                    ++cntr;
+                }
+            } else if (streak < 0 && backend_container2[0] <= backend_container1[0]) {
+                let new_ptr2 = await activate_gallop(backend_container2, backend_container1, container2, container1, streak, speed, merge_val2);
+                state_window.innerHTML = '<b style="font-size:18px" class="state_text" id="state_text">Current state: merging subarrays</b>';
+                console.log("res:", new_ptr2);
+                for (let i = 0; i <= new_ptr2; ++i) {
+                    boxes[first_arr[0] + cntr].style.height = backend_container2[0];
+                    container2.removeChild(container2.firstChild);
+                    backend_container2.shift();
+                    ++cntr;
+                }
+            }
+            await new Promise(r => setTimeout(r, MERGE_CONST / speed));
+            streak = 0;
         }
-        await new Promise(r => setTimeout(r, 400 / speed));
-        ++cntr;
+
+        if (backend_container1.length > 0 && backend_container2.length > 0) {
+            if (parseFloat(backend_container1[0]) <= parseFloat(backend_container2[0])) {
+                boxes[first_arr[0] + cntr].style.height = backend_container1[0];
+                container1.removeChild(container1.firstChild);
+                backend_container1.shift();
+                if (streak < 0) {
+                    streak = 0;
+                }
+                ++streak;
+            } else {
+                boxes[first_arr[0] + cntr].style.height = backend_container2[0];
+                container2.removeChild(container2.firstChild);
+                backend_container2.shift();
+                if (streak > 0) {
+                    streak = 0;
+                }
+                --streak;
+            }
+            // await new Promise(r => setTimeout(r, MERGE_CONST / speed));
+            ++cntr;
+        }
+
     }
+
     if (backend_container1.length > 0) {
-        for (let i = ptr1; i < first_arr[1]; ++i) {
-            // console.log(first_arr[0] + cntr, parseFloat(backend_container1[i]));
-            boxes[first_arr[0] + cntr].style.height = backend_container1[i];
+        let end = backend_container1.length;
+        for (let i = 0; i < end; ++i) {
+            boxes[first_arr[0] + cntr].style.height = backend_container1[0];
             container1.removeChild(container1.firstChild);
-            await new Promise(r => setTimeout(r, 400 / speed));
+            backend_container1.shift();
+            await new Promise(r => setTimeout(r, MERGE_CONST / speed));
             ++cntr;
         }
     }
     if (backend_container2.length > 0) {
-        for (let j = ptr2; j < second_arr[1]; ++j) {
-            // console.log(first_arr[0] + cntr, parseFloat(backend_container2[i]));
-            boxes[first_arr[0] + cntr].style.height = backend_container2[j];
+        let end = backend_container2.length;
+        for (let i = 0; i < end; ++i) {
+            boxes[first_arr[0] + cntr].style.height = backend_container2[0];
             container2.removeChild(container2.firstChild);
-            await new Promise(r => setTimeout(r, 400 / speed));
+            backend_container2.shift();
+            await new Promise(r => setTimeout(r, MERGE_CONST / speed));
             ++cntr;
         }
     }
+
 }

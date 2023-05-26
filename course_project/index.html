@@ -3,8 +3,9 @@
 <head>
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
-    <title>Test page</title>
+    <title>Timsort visualization</title>
     <script src="reset.js" defer></script>
+    <script src="activate_gallop.js"></script>
     <script src="load_array.js"></script>
     <script src="insertion_sort.js"></script>
     <script src="reverse_subarray.js"></script>
@@ -45,8 +46,14 @@
         </div>
         <div class="merge_area" id="merge_area">
             <div class="merge_window">
-                <div class="merge_subwindow" id="merge_subwindow1"></div>
-                <div class="merge_subwindow" id="merge_subwindow2"></div>
+                <div class="merge_subarea" id="merge_subarea1">
+                    <rect class="merge_value_window" id="merge_value_window1"></rect>
+                    <div class="merge_subwindow" id="merge_subwindow1"></div>
+                </div>
+                <div class="merge_subarea" id="merge_subarea2">
+                    <rect class="merge_value_window" id="merge_value_window2"></rect>
+                    <div class="merge_subwindow" id="merge_subwindow2"></div>
+                </div>
             </div>
             <p>Subarrays to merge</p>
         </div>

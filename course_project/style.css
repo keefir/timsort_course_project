@@ -6,7 +6,12 @@
 }
 
 .array_window {
-    border: 2px solid black;
+    box-shadow:
+            2px 0 0 0 #000,
+            0 2px 0 0 #000,
+            2px 2px 0 0 #000,
+            2px 0 0 0 #000 inset,
+            0 2px 0 0 #000 inset;
     display: flex;
     width: 98vw;
     height: 30vh;
@@ -14,7 +19,12 @@
 }
 
 .array_element {
-    border: .1rem solid wheat;
+    box-shadow:
+            2px 0 0 0 #000,
+            0 2px 0 0 #000,
+            2px 2px 0 0 #000,
+            2px 0 0 0 #000 inset,
+            0 2px 0 0 #000 inset;
     /*width: 40px;*/
     /*height: 200px;*/
     background: gray;
@@ -43,7 +53,12 @@
 .stack {
     height: 40vh;
     width: 15vw;
-    border: 2px solid black;
+    box-shadow:
+            2px 0 0 0 #000,
+            0 2px 0 0 #000,
+            2px 2px 0 0 #000,
+            2px 0 0 0 #000 inset,
+            0 2px 0 0 #000 inset;
     display: flex;
     flex-direction: column-reverse;
 }
@@ -51,7 +66,12 @@
 .stack_element {
     height: calc(10% - 2px);
     width: 15vw;
-    border: 1px solid black;
+    box-shadow:
+            2px 0 0 0 #000,
+            0 2px 0 0 #000,
+            2px 2px 0 0 #000,
+            2px 0 0 0 #000 inset,
+            0 2px 0 0 #000 inset;
 }
 
 .merge_area {
@@ -63,9 +83,34 @@
     display: flex;
 }
 
-.merge_subwindow {
-    border: 2px solid black;
+.merge_subarea {
+    display: flex;
     height: 35vh;
+    width: 35vw;
+    flex-direction: column-reverse;
+}
+
+.merge_value_window {
+    box-shadow:
+            2px 0 0 0 #000,
+            0 2px 0 0 #000,
+            2px 2px 0 0 #000,
+            2px 0 0 0 #000 inset,
+            0 2px 0 0 #000 inset;
+    height: 5vh;
+    width: 35vw;
+    text-align: center;
+
+}
+
+.merge_subwindow {
+    box-shadow:
+            2px 0 0 0 #000,
+            0 2px 0 0 #000,
+            2px 2px 0 0 #000,
+            2px 0 0 0 #000 inset,
+            0 2px 0 0 #000 inset;
+    height: 30vh;
     width: 35vw;
     display: flex;
     align-items: flex-end;
@@ -77,7 +122,12 @@ h2 {
 }
 
 .subarray_element {
-    border: .1rem solid wheat;
+    box-shadow:
+            2px 0 0 0 #000,
+            0 2px 0 0 #000,
+            2px 2px 0 0 #000,
+            2px 0 0 0 #000 inset,
+            0 2px 0 0 #000 inset;
     /*width: 40px;*/
     /*height: 200px;*/
     background: gray;

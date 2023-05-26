@@ -140,4 +140,6 @@ async function reverse_runs(arr, minrun, speed, vis_ins) {
     }
     document.getElementById("refresh_button").disabled = false;
     state_window.innerHTML = '<b style="font-size:18px" class="state_text" id="state_text">Current state: finished</b>';
+    merge_val1.innerHTML = ``;
+    merge_val2.innerHTML = ``;
 }
