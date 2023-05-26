@@ -6,7 +6,7 @@ let merge_window2 = document.getElementById("merge_subwindow2");
 let merge_val1 = document.getElementById("merge_value_window1");
 let merge_val2 = document.getElementById("merge_value_window2");
 let state_window = document.getElementById("state_text");
-let min_gal = 7;
+let min_gal = 3;
 const GLOBAL_CONST = 2000;
 const MERGE_CONST = 10000;
 function reset() {

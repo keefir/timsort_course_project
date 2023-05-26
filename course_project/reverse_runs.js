@@ -25,6 +25,7 @@ async function reverse_runs(arr, minrun, speed, vis_ins) {
     let run = 0;
     for (let i = 0; i < arr.length - 1; ++i) {
         state_window.innerHTML = '<b style="font-size:18px" class="state_text" id="state_text">Current state: reversing runs</b>';
+
         await new Promise(r => setTimeout(r, 2000 / speed));
         if (ascending === -1) {
             if (parseFloat(arr[i].style.height) > parseFloat(arr[i + 1].style.height)) {
@@ -47,6 +48,7 @@ async function reverse_runs(arr, minrun, speed, vis_ins) {
             }
             continue;
         }
+
         if (parseFloat(arr[i].style.height) <= parseFloat(arr[i + 1].style.height)) {
             if (ascending === 1) {
                 // here if we're at ascending subarray
@@ -54,7 +56,7 @@ async function reverse_runs(arr, minrun, speed, vis_ins) {
                 ++run;
                 if (i === arr.length - 2) {
                     await new Promise(r => setTimeout(r, 2000 / speed));
-                    for (let j = start_index; j <= i; ++j) {
+                    for (let j = start_index; j <= i + 1; ++j) {
                         arr[j].style.background = "green";
                     }
                     let size = i - start_index + 2;
@@ -97,7 +99,7 @@ async function reverse_runs(arr, minrun, speed, vis_ins) {
                 if (i === arr.length - 2) {
                     await new Promise(r => setTimeout(r, 2000 / speed));
                     await reverse_subarray(arr, start_index, i + 2);
-                    for (let j = start_index; j <= i; ++j) {
+                    for (let j = start_index; j <= i + 1; ++j) {
                         arr[j].style.background = "green";
                     }
                     let size = i - start_index + 2;

@@ -5,7 +5,7 @@ async function activate_gallop(arr1, arr2, frontend_arr1, frontend_arr2, streak,
 
     state_window.innerHTML = '<b style="font-size:18px" class="state_text" id="state_text">Current state: GALLOP! 🐎</b>';
 
-    await new Promise(r => setTimeout(r, MERGE_CONST / speed));
+    // await new Promise(r => setTimeout(r, MERGE_CONST / speed));
     merge_val1.innerHTML = `<p style="font-size:16px"><b>Gallop value: ${parseFloat(arr1[0])}</b><p>`;
 
     if (arr1.length === 1 || parseFloat(arr1[1]) > parseFloat(arr2[0])) {
@@ -42,10 +42,10 @@ async function activate_gallop(arr1, arr2, frontend_arr1, frontend_arr2, streak,
     await new Promise(r => setTimeout(r, MERGE_CONST / speed));
 
     while (l < r) { // бинпоиск
-
+        console.log(i);
         merge_val1.innerHTML = `<p style="font-size:16px"><b>Gallop value: ${parseFloat(arr1[i])}</b><p>`;
         let prev_color = frontend_arr1.childNodes[i].style.background;
-        frontend_arr1.childNodes[i].style.background = "yellow";
+        // frontend_arr1.childNodes[i].style.background = "yellow";
 
         if (parseFloat(arr1[i]) > parseFloat(arr2[0])) {
 
@@ -84,12 +84,13 @@ async function activate_gallop(arr1, arr2, frontend_arr1, frontend_arr2, streak,
         }
         // frontend_arr1.childNodes[i].style.background = "gray";
         // await new Promise(r => setTimeout(r, MERGE_CONST / speed));
-        frontend_arr1.childNodes[i].style.background = prev_color;
+        frontend_arr1.childNodes[i].style.background = "gray";
         i = Math.ceil((r + l) / 2);
         // frontend_arr1.childNodes[i].style.background = "yellow";
         // await new Promise(r => setTimeout(r, MERGE_CONST / speed));
         // console.log(l, r, i); // 10 20 15
     }
+    frontend_arr1.childNodes[i].style.background = "gray";
     console.log('d');
     return i;
 }
