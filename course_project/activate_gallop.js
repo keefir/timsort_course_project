@@ -51,6 +51,8 @@ async function activate_gallop(arr1, arr2, frontend_arr1, frontend_arr2, streak,
 
             if (i > 0 && parseFloat(arr1[i - 1]) <= parseFloat(arr2[0])) {
                 console.log('a');
+                frontend_arr1.childNodes[l].style.background = "gray";
+                frontend_arr1.childNodes[r].style.background = "gray";
                 return i - 1;
             }
 
@@ -64,6 +66,8 @@ async function activate_gallop(arr1, arr2, frontend_arr1, frontend_arr2, streak,
 
             if (i < arr1.length - 1 && parseFloat(arr1[i + 1]) > parseFloat(arr2[0])) {
                 console.log('b');
+                frontend_arr1.childNodes[l].style.background = "gray";
+                frontend_arr1.childNodes[r].style.background = "gray";
                 return i;
             }
 
@@ -74,7 +78,8 @@ async function activate_gallop(arr1, arr2, frontend_arr1, frontend_arr2, streak,
             await new Promise(r => setTimeout(r, MERGE_CONST / speed));
 
         } else {
-
+            frontend_arr1.childNodes[l].style.background = "gray";
+            frontend_arr1.childNodes[r].style.background = "gray";
             while (i < arr1.length - 1 && parseFloat(arr1[i + 1]) === parseFloat(arr2[0])) { // для устойчивости. берём все равные эл-ты из первого массива
                 ++i;
             }
@@ -90,7 +95,8 @@ async function activate_gallop(arr1, arr2, frontend_arr1, frontend_arr2, streak,
         // await new Promise(r => setTimeout(r, MERGE_CONST / speed));
         // console.log(l, r, i); // 10 20 15
     }
-    frontend_arr1.childNodes[i].style.background = "gray";
+    frontend_arr1.childNodes[l].style.background = "gray";
+    frontend_arr1.childNodes[r].style.background = "gray";
     console.log('d');
     return i;
 }

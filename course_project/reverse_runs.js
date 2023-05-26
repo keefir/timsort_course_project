@@ -69,6 +69,7 @@ async function reverse_runs(arr, minrun, speed, vis_ins) {
                 ascending = -1;
                 await reverse_subarray(arr, start_index, i + 1);
                 let end = i;
+                arr[i + 1].style.background = "gray";
                 if (run < minrun) {
                     i = Math.min(arr.length - 1, i + minrun - run);
                     end = i;
@@ -111,6 +112,7 @@ async function reverse_runs(arr, minrun, speed, vis_ins) {
                 await new Promise(r => setTimeout(r, 2000 / speed));
                 ascending = -1;
                 let end = i;
+                arr[i + 1].style.background = "gray";
                 if (run < minrun) {
                     i = Math.min(arr.length - 1, i + minrun - run);
                     end = i;

@@ -8,7 +8,7 @@ let merge_val2 = document.getElementById("merge_value_window2");
 let state_window = document.getElementById("state_text");
 let min_gal = 3;
 const GLOBAL_CONST = 2000;
-const MERGE_CONST = 10000;
+const MERGE_CONST = 2000;
 function reset() {
     backend_stack = [];
     while (frontend_stack.firstChild) {
@@ -31,7 +31,7 @@ function reset() {
     }
 
     // for (let i = 0; i < 8; ++i) {
-    //     boxes[i].style.height = String(i + 5) + "vh";
+    //     boxes[i].style.height = String(i + 15) + "vh";
     //     boxes[i].style.background = "gray";
     // }
     // for (let i = 8; i < 16; ++i) {
