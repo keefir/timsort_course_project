@@ -1,4 +1,4 @@
 # timsort_course_project
-Web-application with Timsort visualization, comparing it to other popular algorithms and other interesting features
+Web-application for Timsort visualization
 
-for HSE FCS course project
+HSE FCS course project
