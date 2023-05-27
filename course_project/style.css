@@ -1,4 +1,18 @@
 .sort_window {
+    /*display: none;*/
+}
+
+.upper_zone {
+    width: 98vw;
+    height: 40vh;
+}
+
+.main_area {
+    width: 98vw;
+    height: 40vh;
+}
+
+.sort_window {
     width: 98vw;
     /*top: 30px;*/
     margin-left: auto;
@@ -18,6 +32,10 @@
     align-items: flex-end;
 }
 
+.array_description {
+
+}
+
 .array_element {
     box-shadow:
             1px 0 0 0 #000,
@@ -30,19 +48,41 @@
     background: gray;
 }
 
+.setting_area {
+    display: none;
+}
+
+.length {
+    margin-left: 2vw;
+}
+
+.generate_array_button {
+    margin-left: 2vw;
+}
+
+.speed {
+    margin-left: 2vw;
+}
+
+.vis_ins {
+    margin-left: 2vw;
+}
+
 .sort_button {
+    margin-left: 2vw;
     position: relative;
     left: 10px;
 }
 
 .refresh_button {
+    margin-left: 1vw;
     position: relative;
     left: 15px;
 }
 
 .lower_zone {
     display: flex;
-    margin-top: 3vh;
+    /*margin-top: 3vh;*/
 }
 
 .stack_area {

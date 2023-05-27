@@ -44,7 +44,7 @@ async function activate_gallop(arr1, arr2, frontend_arr1, frontend_arr2, streak,
     while (l < r) { // бинпоиск
         console.log(i);
         merge_val1.innerHTML = `<p style="font-size:16px"><b>Gallop value: ${parseFloat(arr1[i])}</b><p>`;
-        let prev_color = frontend_arr1.childNodes[i].style.background;
+        // let prev_color = frontend_arr1.childNodes[i].style.background;
         // frontend_arr1.childNodes[i].style.background = "yellow";
 
         if (parseFloat(arr1[i]) > parseFloat(arr2[0])) {

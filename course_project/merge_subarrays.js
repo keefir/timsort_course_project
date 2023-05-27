@@ -38,7 +38,7 @@ async function merge_subarrays(first_arr, second_arr, speed) {
         merge_val2.innerHTML = `<p style="font-size:16px"><b>Lowest element value: ${parseFloat(backend_container2[0])}</b><p>`;
         await new Promise(r => setTimeout(r, MERGE_CONST / speed));
 
-        if (Math.abs(streak) >= min_gal) { // FIXME: gallop
+        if (Math.abs(streak) >= min_gal) {
             if (streak > 0 && parseFloat(backend_container1[0]) <= parseFloat(backend_container2[0])) {
                 let new_ptr1 = await activate_gallop(backend_container1, backend_container2, container1, container2, streak, speed, merge_val1);
                 container1.childNodes[new_ptr1].style.background = "yellow";
@@ -96,10 +96,8 @@ async function merge_subarrays(first_arr, second_arr, speed) {
                 }
                 --streak;
             }
-            // await new Promise(r => setTimeout(r, MERGE_CONST / speed));
             ++cntr;
         }
-
     }
 
     await new Promise(r => setTimeout(r, MERGE_CONST / speed));

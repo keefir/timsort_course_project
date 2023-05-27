@@ -4,7 +4,8 @@
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <title>Timsort visualization</title>
-    <script src="reset.js" defer></script>
+    <script src="globals.js" defer></script>
+    <script src="reset.js"></script>
     <script src="activate_gallop.js"></script>
     <script src="load_array.js"></script>
     <script src="insertion_sort.js"></script>
@@ -14,30 +15,50 @@
     <script src="merge_subarrays.js"></script>
     <script src="merge_stack_elements.js"></script>
 </head>
-<body style="background-color: wheat; text-align:center"
-      onload="load_array(256, document.getElementById('array_window'))">
+<body style="background-color: wheat; text-align:center">
 <h1>Timsort visualization</h1>
 <div class="sort_window" id="sort_window">
-    <div class="array_window" id="array_window"></div>
-    <p>Randomly generated array of 256 objects</p>
-    <div class="setting_area">
-        <b>Minrun:</b>
-        <input type="text" size="3" id="minrun">
-        <b>Speed:</b>
-        <input type="text" size="3" id="speed">
-        <b>Vis. ins. sort:</b>
-        <input type="checkbox" id="vis_ins">
-        <span class="sort_button">
-            <input type="button" id="sort_button"
-                   onclick="reverse_runs(boxes, document.getElementById('minrun').value,
+    <div class="upper_zone" id="upper_zone">
+        <div class="main_area" id="main_area">
+            <div class="array_window" id="array_window"></div>
+            <p class="array_description" id="array_description"><b>Choose array type and length:</b></p>
+            <form name="array_choosing" id="array_choosing_area">
+                <div class="array_choosing" id="array_choosing">
+                    <input type="radio" id="random" name="array_type"
+                           value="Random">
+                    <label for="random"><b>Random</b></label>
+                    <input type="radio" id="presorted" name="array_type"
+                           value="Presorted">
+                    <label for="presorted"><b>Presorted</b></label>
+                    <label class="length" for="length"><b>Length:</b></label>
+                    <input type="text" size="3" id="length">
+                    <span class="generate_array_button">
+                    <input type="button" id="confirm_array_button"
+                           onclick="load_array(parseInt(document.getElementById('length').value), document.getElementById('array_window'), document.array_choosing.array_type.value)"
+                           value="Select">
+                </span>
+                </div>
+            </form>
+            <div class="setting_area" id="setting_area">
+                <label for="minrun"><b>Minrun:</b></label>
+                <input type="text" size="3" id="minrun">
+                <label class="speed" for="speed"><b>Speed:</b></label>
+                <input type="text" size="3" id="speed">
+                <label class="vis_ins" for="vis_ins"><b>Vis. ins. sort:</b></label>
+                <input type="checkbox" id="vis_ins">
+                <span class="sort_button">
+                    <input type="button" id="sort_button"
+                           onclick="reverse_runs(boxes, document.getElementById('minrun').value,
                     document.getElementById('speed').value,
                     document.getElementById('vis_ins').checked)"
-                   value="Sort!">
-        </span>
-        <span class="refresh_button">
-            <input type="button" id="refresh_button" onclick="reset()" value="Refresh">
-        </span>
-        <span></span>
+                           value="Sort!">
+                </span>
+                <span class="refresh_button">
+                    <input type="button" id="refresh_button" onclick="reset(document.getElementById('array_window'))" value="Reset">
+                </span>
+                <span></span>
+            </div>
+        </div>
     </div>
     <div class="lower_zone" id="lower_zone">
         <div class="stack_area" id="stack_area">
