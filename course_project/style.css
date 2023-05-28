@@ -57,19 +57,19 @@
 }
 
 .generate_array_button {
-    margin-left: 2vw;
+    margin-left: 1vw;
 }
 
 .speed {
-    margin-left: 2vw;
+    margin-left: 1vw;
 }
 
 .vis_ins {
-    margin-left: 2vw;
+    margin-left: 1vw;
 }
 
 .sort_button {
-    margin-left: 2vw;
+    margin-left: 1vw;
     position: relative;
     left: 10px;
 }

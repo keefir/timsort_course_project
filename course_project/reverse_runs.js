@@ -2,8 +2,8 @@ async function reverse_runs(arr, minrun, speed, vis_ins) {
     if (isNaN(minrun)) {
         alert(`${minrun} is not a valid number.`)
         return;
-    } else if (Number(minrun) <= 3 || Number(minrun) > 128) {
-        alert("Minrun must be in range [4, 128].");
+    } else if (Number(minrun) <= 3 || Number(minrun) > Math.min(arr.length, 128)) {
+        alert("Minrun must be in range [4, min(128, len(arr))].");
         return;
     } else if (!Number.isInteger(Number(minrun))) {
         alert("Minrun must be integer.");

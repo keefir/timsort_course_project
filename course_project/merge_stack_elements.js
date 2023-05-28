@@ -32,7 +32,7 @@ async function merge_stack_elements(speed, is_last) {
             } else {
                 frontend_stack.childNodes[frontend_stack.childNodes.length - 2].style.background = "red";
                 frontend_stack.childNodes[frontend_stack.childNodes.length - 3].style.background = "red";
-                await merge_subarrays(backend_stack.at(-2), backend_stack.at(-3), speed);
+                await merge_subarrays(backend_stack.at(-3), backend_stack.at(-2), speed);
                 backend_stack[backend_stack.length - 3] = [backend_stack.at(-3)[0], backend_stack.at(-2)[1] + backend_stack.at(-3)[1]];
                 backend_stack[backend_stack.length - 2] = backend_stack.pop();
                 frontend_stack.removeChild(frontend_stack.lastChild);
