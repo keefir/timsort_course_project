@@ -6,7 +6,7 @@ async function stack_push(start_index, size, speed) {
     }
     let div = frontend_stack.appendChild(document.createElement("rect"));
     div.className = "stack_element";
-    div.innerHTML = `<p>Start index: ${start_index}, Size: ${size}</p>`;
+    div.innerHTML = `<p style="margin-top: 1vh">Start index: ${start_index}, Size: ${size}</p>`;
     div.style.background = "lightgreen";
     await new Promise(r => setTimeout(r, 2000 / speed));
 }

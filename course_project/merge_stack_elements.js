@@ -13,7 +13,7 @@ async function merge_stack_elements(speed, is_last) {
             let cur_last = backend_stack[backend_stack.length - 1];
             backend_stack[backend_stack.length - 1] = [cur_last[0], cur_last[1] + prev_el[1]];
             frontend_stack.removeChild(frontend_stack.lastChild);
-            frontend_stack.lastChild.innerHTML = `<p>Start index: ${backend_stack.at(-1)[0]}, Size: ${backend_stack.at(-1)[1]}</p>`;
+            frontend_stack.lastChild.innerHTML = `<p style="margin-top: 1vh">Start index: ${backend_stack.at(-1)[0]}, Size: ${backend_stack.at(-1)[1]}</p>`;
         }
         frontend_stack.lastChild.style.background = "lightgreen";
     } else {
@@ -27,7 +27,7 @@ async function merge_stack_elements(speed, is_last) {
                 let cur_last = backend_stack[backend_stack.length - 1];
                 backend_stack[backend_stack.length - 1] = [cur_last[0], cur_last[1] + prev_el[1]];
                 frontend_stack.removeChild(frontend_stack.lastChild);
-                frontend_stack.lastChild.innerHTML = `<p>Start index: ${backend_stack.at(-1)[0]}, Size: ${backend_stack.at(-1)[1]}</p>`;
+                frontend_stack.lastChild.innerHTML = `<p style="margin-top: 1vh">Start index: ${backend_stack.at(-1)[0]}, Size: ${backend_stack.at(-1)[1]}</p>`;
                 frontend_stack.lastChild.style.background = "lightgreen";
             } else {
                 frontend_stack.childNodes[frontend_stack.childNodes.length - 2].style.background = "red";
@@ -36,7 +36,7 @@ async function merge_stack_elements(speed, is_last) {
                 backend_stack[backend_stack.length - 3] = [backend_stack.at(-3)[0], backend_stack.at(-2)[1] + backend_stack.at(-3)[1]];
                 backend_stack[backend_stack.length - 2] = backend_stack.pop();
                 frontend_stack.removeChild(frontend_stack.lastChild);
-                frontend_stack.lastChild.innerHTML = `<p>Start index: ${backend_stack.at(-1)[0]}, Size: ${backend_stack.at(-1)[1]}</p>`;
+                frontend_stack.lastChild.innerHTML = `<p style="margin-top: 1vh">Start index: ${backend_stack.at(-1)[0]}, Size: ${backend_stack.at(-1)[1]}</p>`;
                 frontend_stack.lastChild.style.background = "lightgreen";
             }
         }
@@ -48,7 +48,7 @@ async function merge_stack_elements(speed, is_last) {
                 let prev_el = backend_stack.shift();
                 backend_stack[0] = [prev_el[0], prev_el[1] + backend_stack[0][1]];
                 frontend_stack.removeChild(frontend_stack.firstChild);
-                frontend_stack.firstChild.innerHTML = `<p>Start index: ${backend_stack[0][0]}, Size: ${backend_stack[0][1]}</p>`;
+                frontend_stack.firstChild.innerHTML = `<p style="margin-top: 1vh">Start index: ${backend_stack[0][0]}, Size: ${backend_stack[0][1]}</p>`;
                 frontend_stack.firstChild.style.background = "lightgreen";
             }
         }
