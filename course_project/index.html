@@ -16,7 +16,12 @@
     <script src="merge_stack_elements.js"></script>
 </head>
 <body style="background-color: wheat; text-align:center">
-<h1>Timsort visualization</h1>
+<div class="title">
+    <h1>Timsort visualization</h1>
+</div>
+<div class="info_ref">
+    <a class="info" href="https://en.wikipedia.org/wiki/Timsort"><b>Learn more about Timsort</b></a>
+</div>
 <div class="sort_window" id="sort_window">
     <div class="upper_zone" id="upper_zone">
         <div class="main_area" id="main_area">
@@ -54,7 +59,8 @@
                            value="Sort!">
                 </span>
                 <span class="refresh_button">
-                    <input type="button" id="refresh_button" onclick="reset(document.getElementById('array_window'))" value="Reset">
+                    <input type="button" id="refresh_button" onclick="reset(document.getElementById('array_window'))"
+                           value="Reset">
                 </span>
                 <span></span>
             </div>

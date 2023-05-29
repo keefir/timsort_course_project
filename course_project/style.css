@@ -1,3 +1,13 @@
+.title {
+
+}
+
+.info_ref {
+    position: absolute;
+    top: 3vh;
+    right: 2vw;
+}
+
 .sort_window {
     /*display: none;*/
 }
@@ -20,12 +30,11 @@
 }
 
 .array_window {
-    box-shadow:
-            2px 0 0 0 #000,
-            0 2px 0 0 #000,
-            2px 2px 0 0 #000,
-            2px 0 0 0 #000 inset,
-            0 2px 0 0 #000 inset;
+    box-shadow: 2px 0 0 0 #000,
+    0 2px 0 0 #000,
+    2px 2px 0 0 #000,
+    2px 0 0 0 #000 inset,
+    0 2px 0 0 #000 inset;
     display: flex;
     width: 98vw;
     height: 30vh;
@@ -37,12 +46,11 @@
 }
 
 .array_element {
-    box-shadow:
-            1px 0 0 0 #000,
-            0 1px 0 0 #000,
-            1px 1px 0 0 #000,
-            1px 0 0 0 #000 inset,
-            0 1px 0 0 #000 inset;
+    box-shadow: 1px 0 0 0 #000,
+    0 1px 0 0 #000,
+    1px 1px 0 0 #000,
+    1px 0 0 0 #000 inset,
+    0 1px 0 0 #000 inset;
     /*width: 40px;*/
     /*height: 200px;*/
     background: gray;
@@ -93,12 +101,11 @@
 .stack {
     height: 40vh;
     width: 15vw;
-    box-shadow:
-            2px 0 0 0 #000,
-            0 2px 0 0 #000,
-            2px 2px 0 0 #000,
-            2px 0 0 0 #000 inset,
-            0 2px 0 0 #000 inset;
+    box-shadow: 2px 0 0 0 #000,
+    0 2px 0 0 #000,
+    2px 2px 0 0 #000,
+    2px 0 0 0 #000 inset,
+    0 2px 0 0 #000 inset;
     display: flex;
     flex-direction: column-reverse;
 }
@@ -106,12 +113,11 @@
 .stack_element {
     height: calc(10% - 2px);
     width: 15vw;
-    box-shadow:
-            2px 0 0 0 #000,
-            0 2px 0 0 #000,
-            2px 2px 0 0 #000,
-            2px 0 0 0 #000 inset,
-            0 2px 0 0 #000 inset;
+    box-shadow: 2px 0 0 0 #000,
+    0 2px 0 0 #000,
+    2px 2px 0 0 #000,
+    2px 0 0 0 #000 inset,
+    0 2px 0 0 #000 inset;
 }
 
 .merge_area {
@@ -131,12 +137,11 @@
 }
 
 .merge_value_window {
-    box-shadow:
-            2px 0 0 0 #000,
-            0 2px 0 0 #000,
-            2px 2px 0 0 #000,
-            2px 0 0 0 #000 inset,
-            0 2px 0 0 #000 inset;
+    box-shadow: 2px 0 0 0 #000,
+    0 2px 0 0 #000,
+    2px 2px 0 0 #000,
+    2px 0 0 0 #000 inset,
+    0 2px 0 0 #000 inset;
     height: 5vh;
     width: 35vw;
     text-align: center;
@@ -144,12 +149,11 @@
 }
 
 .merge_subwindow {
-    box-shadow:
-            2px 0 0 0 #000,
-            0 2px 0 0 #000,
-            2px 2px 0 0 #000,
-            2px 0 0 0 #000 inset,
-            0 2px 0 0 #000 inset;
+    box-shadow: 2px 0 0 0 #000,
+    0 2px 0 0 #000,
+    2px 2px 0 0 #000,
+    2px 0 0 0 #000 inset,
+    0 2px 0 0 #000 inset;
     height: 30vh;
     width: 35vw;
     display: flex;
@@ -162,12 +166,11 @@ h2 {
 }
 
 .subarray_element {
-    box-shadow:
-            1px 0 0 0 #000,
-            0 1px 0 0 #000,
-            1px 1px 0 0 #000,
-            1px 0 0 0 #000 inset,
-            0 1px 0 0 #000 inset;
+    box-shadow: 1px 0 0 0 #000,
+    0 1px 0 0 #000,
+    1px 1px 0 0 #000,
+    1px 0 0 0 #000 inset,
+    0 1px 0 0 #000 inset;
     /*width: 40px;*/
     /*height: 200px;*/
     background: gray;
