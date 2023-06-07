@@ -68,6 +68,10 @@
     margin-left: 1vw;
 }
 
+.mingal {
+    margin-left: 1vw;
+}
+
 .speed {
     margin-left: 1vw;
 }
@@ -145,7 +149,6 @@
     height: 5vh;
     width: 35vw;
     text-align: center;
-
 }
 
 .merge_subwindow {
@@ -158,6 +161,10 @@
     width: 35vw;
     display: flex;
     align-items: flex-end;
+}
+
+#merge_subarea2 {
+    margin-left: 0.5vw;
 }
 
 h2 {

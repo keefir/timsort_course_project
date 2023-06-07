@@ -8,5 +8,5 @@ async function stack_push(start_index, size, speed) {
     div.className = "stack_element";
     div.innerHTML = `<p style="margin-top: 1vh">Start index: ${start_index}, Size: ${size}</p>`;
     div.style.background = "lightgreen";
-    await new Promise(r => setTimeout(r, 2000 / speed));
+    await new Promise(r => setTimeout(r, GLOBAL_CONST / speed));
 }

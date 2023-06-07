@@ -1,4 +1,4 @@
-async function merge_subarrays(first_arr, second_arr, speed) {
+async function merge_subarrays(first_arr, second_arr, min_gal, speed) {
     // backend_stack: {start_index, size}
     /*
         filling frontend zone

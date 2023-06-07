@@ -1,4 +1,4 @@
-async function merge_stack_elements(speed, is_last) {
+async function merge_stack_elements(min_gal, speed, is_last) {
     /*
         backend_stack: {start_index, size}
     */
@@ -8,7 +8,7 @@ async function merge_stack_elements(speed, is_last) {
             frontend_stack.childNodes[i].style.background = "red";
         }
         while (backend_stack.length > 1) {
-            await merge_subarrays(backend_stack.at(-2), backend_stack.at(-1), speed);
+            await merge_subarrays(backend_stack.at(-2), backend_stack.at(-1), min_gal, speed);
             let prev_el = backend_stack.pop();
             let cur_last = backend_stack[backend_stack.length - 1];
             backend_stack[backend_stack.length - 1] = [cur_last[0], cur_last[1] + prev_el[1]];
@@ -22,7 +22,7 @@ async function merge_stack_elements(speed, is_last) {
             if (backend_stack.at(-1)[1] < backend_stack.at(-3)[1]) {
                 frontend_stack.childNodes[frontend_stack.childNodes.length - 1].style.background = "red";
                 frontend_stack.childNodes[frontend_stack.childNodes.length - 2].style.background = "red";
-                await merge_subarrays(backend_stack.at(-2), backend_stack.at(-1), speed);
+                await merge_subarrays(backend_stack.at(-2), backend_stack.at(-1), min_gal, speed);
                 let prev_el = backend_stack.pop();
                 let cur_last = backend_stack[backend_stack.length - 1];
                 backend_stack[backend_stack.length - 1] = [cur_last[0], cur_last[1] + prev_el[1]];
@@ -32,7 +32,7 @@ async function merge_stack_elements(speed, is_last) {
             } else {
                 frontend_stack.childNodes[frontend_stack.childNodes.length - 2].style.background = "red";
                 frontend_stack.childNodes[frontend_stack.childNodes.length - 3].style.background = "red";
-                await merge_subarrays(backend_stack.at(-3), backend_stack.at(-2), speed);
+                await merge_subarrays(backend_stack.at(-3), backend_stack.at(-2), min_gal, speed);
                 backend_stack[backend_stack.length - 3] = [backend_stack.at(-3)[0], backend_stack.at(-2)[1] + backend_stack.at(-3)[1]];
                 backend_stack[backend_stack.length - 2] = backend_stack.pop();
                 frontend_stack.removeChild(frontend_stack.lastChild);
@@ -44,7 +44,7 @@ async function merge_stack_elements(speed, is_last) {
             if (backend_stack.at(-2)[1] <= backend_stack.at(-1)[1]) {
                 frontend_stack.childNodes[1].style.background = "red";
                 frontend_stack.childNodes[0].style.background = "red";
-                await merge_subarrays(backend_stack.at(-2), backend_stack.at(-1), speed);
+                await merge_subarrays(backend_stack.at(-2), backend_stack.at(-1), min_gal, speed);
                 let prev_el = backend_stack.shift();
                 backend_stack[0] = [prev_el[0], prev_el[1] + backend_stack[0][1]];
                 frontend_stack.removeChild(frontend_stack.firstChild);

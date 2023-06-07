@@ -47,6 +47,8 @@
             <div class="setting_area" id="setting_area">
                 <label for="minrun"><b>Minrun:</b></label>
                 <input type="text" size="3" id="minrun">
+                <label class="mingal" for="mingal"><b>Mingal:</b></label>
+                <input type="text" size="3" id="mingal">
                 <label class="speed" for="speed"><b>Speed:</b></label>
                 <input type="text" size="3" id="speed">
                 <label class="vis_ins" for="vis_ins"><b>Vis. ins. sort:</b></label>
@@ -54,8 +56,9 @@
                 <span class="sort_button">
                     <input type="button" id="sort_button"
                            onclick="reverse_runs(boxes, document.getElementById('minrun').value,
-                    document.getElementById('speed').value,
-                    document.getElementById('vis_ins').checked)"
+                            document.getElementById('mingal').value,
+                            document.getElementById('speed').value,
+                            document.getElementById('vis_ins').checked)"
                            value="Sort!">
                 </span>
                 <span class="refresh_button">
